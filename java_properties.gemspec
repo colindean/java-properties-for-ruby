@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "java_properties"
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Dwayne Kristjanson", "Colin Dean"]
@@ -46,7 +46,8 @@ Gem::Specification.new do |s|
     "test/test_data.rb",
     "test/test_files/.gitkeep",
     "test/test_helper.rb",
-    "test/test_java_properties.rb"
+    "test/test_java_properties.rb",
+    "test/test_utf8.rb"
   ]
   s.homepage = "https://github.com/flergl/java-properties-for-ruby"
   s.licenses = ["MIT"]
@@ -62,13 +63,19 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<java_properties>, [">= 0"])
       s.add_development_dependency(%q<rdoc>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
+      s.add_development_dependency(%q<rdoc>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
       s.add_dependency(%q<java_properties>, [">= 0"])
+      s.add_dependency(%q<rdoc>, [">= 0"])
+      s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<rdoc>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
     s.add_dependency(%q<java_properties>, [">= 0"])
+    s.add_dependency(%q<rdoc>, [">= 0"])
+    s.add_dependency(%q<jeweler>, [">= 0"])
     s.add_dependency(%q<rdoc>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
   end
