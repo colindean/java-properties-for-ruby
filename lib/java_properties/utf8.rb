@@ -28,42 +28,42 @@ module JavaProperties
       # Gets the UTF-8 encoding of a given unicode code point (provided as an Fixnum)
       
       def self.utf8(ud)
-	s = ""
-	if ud < 128 then
-	  # UTF-8 is 1 byte long, the value of ud.
-	  s << ud
-	elsif ud >= 128 && ud <= 2047 then
-	  # UTF-8 is 2 bytes long.
-	  s << (192 + (ud.div 64))
-	  s << (128 + (ud % 64))
-	elsif ud >= 2048 && ud <= 65535 then
-	  # UTF-8 is 3 bytes long.
-	  s << (224 + (ud.div 4096))
-	  s << (128 + ((ud.div 64) % 64))
-	  s << (128 + (ud % 64))
-	elsif ud >= 65536 && ud <=2097151 then
-	  # UTF-8 is 4 bytes long.
-	  s << (240 + (ud.div 262144))
-	  s << (128 + ((ud.div 4096) % 64))
-	  s << (128 + ((ud.div 64) % 64))
-	  s << (128 + (ud % 64))
-	elsif ud >= 2097152 && ud <= 7108863 then
-	  # UTF-8 is 5 bytes long.
-	  s << (248 + (ud.div 16777216))
-	  s << (128 + ((ud.div 262144) % 64))
-	  s << (128 + ((ud.div 4096) % 64))
-	  s << (128 + ((ud.div 64) % 64))
-	  s << (128 + (ud % 64))
-	elsif ud >= 67108864 && ud <= 2147483647
-	  # then UTF-8 is 6 bytes long.
-	  s << (252 + (ud.div 1073741824))
-	  s << (128 + ((ud.div 16777216) % 64))
-	  s << (128 + ((ud.div 262144) % 64))
-	  s << (128 + ((ud.div 4096) % 64))
-	  s << (128 + ((ud.div 64) % 64))
-	  s << (128 + (ud % 64))
-	end
-	s
+	    s = []
+	    if ud < 128 then
+	      # UTF-8 is 1 byte long, the value of ud.
+	      s << ud
+	    elsif ud >= 128 && ud <= 2047 then
+	      # UTF-8 is 2 bytes long.
+	      s << (192 + (ud.div 64))
+	      s << (128 + (ud % 64))
+	    elsif ud >= 2048 && ud <= 65535 then
+	      # UTF-8 is 3 bytes long.
+	      s << (224 + (ud.div 4096))
+	      s << (128 + ((ud.div 64) % 64))
+	      s << (128 + (ud % 64))
+	    elsif ud >= 65536 && ud <=2097151 then
+	      # UTF-8 is 4 bytes long.
+	      s << (240 + (ud.div 262144))
+	      s << (128 + ((ud.div 4096) % 64))
+	      s << (128 + ((ud.div 64) % 64))
+	      s << (128 + (ud % 64))
+	    elsif ud >= 2097152 && ud <= 7108863 then
+	      # UTF-8 is 5 bytes long.
+	      s << (248 + (ud.div 16777216))
+	      s << (128 + ((ud.div 262144) % 64))
+	      s << (128 + ((ud.div 4096) % 64))
+	      s << (128 + ((ud.div 64) % 64))
+	      s << (128 + (ud % 64))
+	    elsif ud >= 67108864 && ud <= 2147483647
+	      # then UTF-8 is 6 bytes long.
+	      s << (252 + (ud.div 1073741824))
+	      s << (128 + ((ud.div 16777216) % 64))
+	      s << (128 + ((ud.div 262144) % 64))
+	      s << (128 + ((ud.div 4096) % 64))
+	      s << (128 + ((ud.div 64) % 64))
+	      s << (128 + (ud % 64))
+	    end
+	    s.pack('C*').force_encoding('UTF-8')
       end
     
       # Encodes all UTF-8 characters in the provided string using \uXXXX
