@@ -33,7 +33,7 @@ Options are:
 BANNER
   opts.separator ""
   opts.on("-s", "--stdin",
-          "Read input from standard input instead of an input file") { |OPTIONS[:path]| }
+          "Read input from standard input instead of an input file") { OPTIONS[:stdin] = true }
   opts.on("-h", "--help",
           "Show this help message.") { puts opts; exit }
   opts.parse!(ARGV)
