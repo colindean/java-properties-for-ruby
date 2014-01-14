@@ -30,7 +30,7 @@ Jeweler::RubygemsDotOrgTasks.new
 
 Rake::TestTask.new(:test) do |t|
   t.libs.push 'lib'
-  t.test_files = FileList['test/test_java_properties.rb']
+  t.test_files = FileList['test/test_java_properties.rb','test/test_utf8.rb']
   t.verbose = true
 end
 
